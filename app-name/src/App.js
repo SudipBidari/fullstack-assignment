@@ -24,7 +24,7 @@ function App() {
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
           <a className="dropdown-item" href="/">Genre 1</a>
           <a className="dropdown-item" href="/">Genre 2</a>
-          <a href="" className="dropdown-item" href="/">Genre 3</a>
+          <a className="dropdown-item" href="/">Genre 3</a>
           <a className="dropdown-item" href="/">Genre 4</a>
         </div>
       </li>

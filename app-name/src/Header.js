@@ -1,8 +1,14 @@
 import './Header.css'
 import {Link} from 'react-router-dom'
 import { useStateValue } from './StateProvider'
+import { auth } from './firebase';
 function Header() {
-  const [{basket}, dispatch] = useStateValue();
+  const [{basket, user}, dispatch] = useStateValue();
+  const handleAuthentication = () => {
+    if (user){
+      auth.signOut();
+    }
+  }
   return (
     <div className='header'>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -23,8 +29,8 @@ function Header() {
         
       </li>
       <li className="nav-item">
-        <Link to = '/login'>
-        <a className="nav-link" href="/">Sign in</a>
+        <Link to = {!user && '/login'}>
+        <a onClick={handleAuthentication} className="nav-link" href="/">{user ? 'Sign Out':'Sign In'}</a>
         </Link>
       </li>
       <li className="nav-item dropdown">
